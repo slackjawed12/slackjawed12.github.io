@@ -12,22 +12,31 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise", "default"
+# 블로그 스킨 설정
 
 # Site Settings
-locale                   : "en-US"
-title                    : "Site Title"
-title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
+locale                   : "ko-KR" # "en-US", "ko-KR"
+# 언어 설정
+
+title                    : "물리코더 개발 공부일지"
+# 블로그 제목
+title_separator          : "|" # "-"
+# 제목 구분선 설정 : "|" 로 설정한 경우 브라우저 탭에 "글 제목 | 블로그 제목"과 같이 나타남
+subtitle                 : "passion" # site tagline that appears below site title in masthead
+
+name                     : "PhysicsCoder" # 유저 이름
+description              : "An amazing website." # 블로그 설명
 url                      : "https://slackjawed12.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "/assets/images/PhysicsCoder-logo.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-# breadcrumbs            : false # true, false (default)
+
+breadcrumbs            : true # true, false (default)
+# 네비게이션 메뉴 추가
+
 words_per_minute         : 200
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
@@ -104,10 +113,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "PhysicsCoder" # 블로그 왼편에 작성자 이름으로 나옴
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  # 사진 이미지
+  bio              : "물리코더의 개발 블로그입니다"
+  location         : "South Korea, Seoul"
   email            :
   links:
     - label: "Email"
@@ -278,6 +288,7 @@ compress_html:
 
 
 # Defaults
+# 모든 포스트에 디폴트로 적용되는 사항
 defaults:
   # _posts
   - scope:
@@ -290,3 +301,6 @@ defaults:
       comments: # true
       share: true
       related: true
+      show_date: true # true면 작성 일자 나타냄
+# date_format: "%Y-%m-%d"  # 날짜형식 설정
+# 디폴트 날짜형식은 "month(english) day(num), year"
