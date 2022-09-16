@@ -40,8 +40,10 @@ breadcrumbs            : true # true, false (default)
 words_per_minute         : 200
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
+  # 댓글 기능 - disqus 이용함
   disqus:
     shortname            : "physcoder" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    # disqus shortname
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -105,10 +107,10 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"
+  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
+    tracking_id          : "G-2LF12YD254"
+    anonymize_ip         : false # true, false (default)
 
 
 # Site Author
@@ -302,5 +304,5 @@ defaults:
       share: true
       related: true
       show_date: true # true면 작성 일자 나타냄
-# date_format: "%Y-%m-%d"  # 날짜형식 설정
+date_format: "%Y-%m-%d"  # 날짜형식 설정
 # 디폴트 날짜형식은 "month(english) day(num), year"
