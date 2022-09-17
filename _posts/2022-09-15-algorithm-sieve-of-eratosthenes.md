@@ -8,6 +8,11 @@ tag: [c++, algorithm, 소수]
 # 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성
 toc : true # table of contents 추가
 use_math: true # 수식 쓸 경우 추가
+author_profile: false # 포스트 화면에서 작성자 프로필이 나타날지 여부 결정
+
+sidebar:
+  nav : "docs"
+# search : false # 검색 시 결과에 나타날지 여부 결정
 ---
 
 에라토스테네스의 체는 1부터 N까지 소수를 구하는 방법입니다.
