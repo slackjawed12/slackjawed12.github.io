@@ -1,7 +1,7 @@
 ---
 title: "PS"
 layout: archive
-permalink: categories/ps
+permalink: /categories/ps/
 author_profile: true
 sidebar_main: true
 sidebar:

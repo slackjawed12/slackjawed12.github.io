@@ -1,7 +1,7 @@
 ---
 title: "항해99 TIL"
 layout: archive
-permalink: categories/til99
+permalink: /categories/til99/
 author_profile: true
 sidebar_main: true
 sidebar:
