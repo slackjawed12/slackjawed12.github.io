@@ -9,19 +9,19 @@ main:
 
 # 사이드바에 나타날 문서 구분 설정
 docs:
- - title: "Algorithm, PS"
-   children:
-   - title : "Category"
-     url: /categories/
-   - title : "Tag"
-     url : /tags/
+  - title: "Algorithm"
+    children:
+      - title: "PS"
+        url: /categories/ps/
+  - title: "Computer Architecture"
+    children:
+      - title: "SPIM"
+        url: /categories/spim/
+  - title: "항해99"
+    children:
+      - title: "TIL"
+        url: /categories/til99/
 
- - title: "컴퓨터 구조"
-   children:
-   - title : "Category"
-     url: /categories/
-   - title : "Tag"
-     url : /tags/
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/

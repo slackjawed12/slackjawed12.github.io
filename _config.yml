@@ -19,10 +19,8 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 locale                   : "ko-KR" # "en-US", "ko-KR"
 # 언어 설정
 
-title                    : "물리코더 개발 공부일지"
-# 블로그 제목
-title_separator          : "|" # "-"
-# 제목 구분선 설정 : "|" 로 설정한 경우 브라우저 탭에 "글 제목 | 블로그 제목"과 같이 나타남
+title                    : "물리코더 개발 공부일지" # 블로그 제목
+title_separator          : "|" # "-" # 제목 구분선 설정 : "|" 로 설정한 경우 브라우저 탭에 "글 제목 | 블로그 제목"과 같이 나타남
 subtitle                 : "passion" # site tagline that appears below site title in masthead
 
 name                     : "PhysicsCoder" # 유저 이름
