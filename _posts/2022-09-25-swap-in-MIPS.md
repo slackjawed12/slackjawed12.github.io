@@ -16,11 +16,11 @@ sidebar:
  
  Computer Organization and Design 5ed를 개인적으로 공부하면서 정리한 내용입니다.  
  
- 두 변수의 값을 맞바꾸는 Swap 함수를 MIPS 명령어 셋으로 나타내는 과정입니다.  
+ 두 변수의 값을 맞바꾸는 Swap 함수를 MIPS 명령어 셋으로 나타내는 과정이다.  
  
 # 1. C로 작성한 Swap 함수 
  
- 먼저 C 코드로 Swap 함수를 어떻게 작성하는지 보겠습니다.  
+ 먼저 C 코드로 Swap 함수는 아래와 같다.  
  (인자로 배열 v의 주소와 정수 k를 받는 경우)  
 
  ``` c
