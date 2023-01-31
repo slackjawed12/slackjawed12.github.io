@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: "백준 3003 - 킹,퀸,룩,비숍,나이트,폰"
+title: "백준 3003 - 킹,퀸,룩,비숍,나이트,폰 (Java)"
 categories: PS
 tag: [Java, stream, reduce, Optional, orElse]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)

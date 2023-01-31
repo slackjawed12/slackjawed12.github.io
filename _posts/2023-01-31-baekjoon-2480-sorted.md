@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: "백준 2480 - 주사위 세개"
+title: "백준 2480 - 주사위 세개 (Java)"
 categories: PS
 tag: [Java, stream, sorted]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
