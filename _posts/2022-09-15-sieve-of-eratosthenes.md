@@ -2,7 +2,7 @@
 layout: single
 
 title: "에라토스테네스 체 구현 및 시간복잡도 분석"
-categories: PS
+categories: algorithm
 tag: [C++, algorithm, 소수]
 # 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성
 toc : true # table of contents 추가
@@ -29,7 +29,7 @@ sidebar:
 
  이제부터 에라토스테네스의 체 알고리즘의 시간복잡도가 $ O(N \log\log N)$ 임을 알아보자.
 
-* * *
+
 ## 2. C++ 코드의 연산 횟수
 
 ### 1) 에라토스테네스의 체를 C++로 구현한 코드
@@ -62,7 +62,7 @@ vector<int> Eratosthenes (int n) {
  
  여기서 우변은 $N$보다 작은 소수의 역수들의 합이다.
 
-* * *
+
 ## 3. 시간복잡도 증명
   
   위키피디아를 찾아보면, $\Omega(\log\log N)$ 임은 쉽게 알 수 있다.<br/>

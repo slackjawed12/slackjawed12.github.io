@@ -1,8 +1,8 @@
 ---
 layout: single
 
-title: "백준 3003 - 킹,퀸,룩,비숍,나이트,폰 (Java)"
-categories: PS
+title: "[백준][Java] 3003 - 킹,퀸,룩,비숍,나이트,폰"
+categories: codingtest
 tag: [Java, stream, reduce, Optional, orElse]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가
@@ -15,38 +15,26 @@ sidebar:
 [//]: # (# search : false # 검색 시 결과에 나타날지 여부 결정)
 ---
 
-## 1. 문제 설명
- 공백으로 구분된 6개의 정수를 입력으로 받아, [1, 1, 2, 2, 2, 8] 배열과 차이를 출력하는 간단한 문제다.<br/>
- 연습삼아 입출력을 stream으로 하려고 풀어보았다.
+## 1. 문제 개요
+[문제 링크](https://www.acmicpc.net/problem/3003)
+### 문제
+동혁이는 오래된 창고를 뒤지다가 낡은 체스판과 피스를 발견했다.<br/>
+체스판의 먼지를 털어내고 걸레로 닦으니 그럭저럭 쓸만한 체스판이 되었다. 하지만, 검정색 피스는 모두 있었으나, 흰색 피스는 개수가 올바르지 않았다.<br/>
+체스는 총 16개의 피스를 사용하며, 킹 1개, 퀸 1개, 룩 2개, 비숍 2개, 나이트 2개, 폰 8개로 구성되어 있다.<br/>
+동혁이가 발견한 흰색 피스의 개수가 주어졌을 때, 몇 개를 더하거나 빼야 올바른 세트가 되는지 구하는 프로그을 작성하시오.<br/>
 
-* * *
-## 2. 풀이
+### 입력
+첫째 줄에 동혁이가 찾은 흰색 킹, 퀸, 룩, 비숍, 나이트, 폰의 개수가 주어진다. 이 값은 0보다 크거나 같고 10보다 작거나 같은 정수이다.
 
- ``` java
- import java.io.*;
- import java.util.Arrays;
- import java.util.stream.Stream;
- public class Main {
-    public static void main (String[] args) throws Exception{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] stringArray = br.readLine().split(" ");
-        int[] cmp = {1, 1, 2, 2, 2, 8};
+### 출력
+첫째 줄에 입력에서 주어진 순서대로 몇 개의 피스를 더하거나 빼야 되는지를 출력한다.<br/>
+만약 수가 양수라면 동혁이는 그 개수 만큼 피스를 더해야 하는 것이고, 음수라면 제거해야 하는 것이다.
+<br/>
+<br/>
 
-        int[] arr = Stream.of(stringArray).mapToInt(Integer::parseInt).toArray();
-        for (int i = 0; i < 6; i++) {
-            cmp[i] -= arr[i];
-        }
+## 2. 풀이 코드 및 설명
 
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String ans = Arrays.stream(cmp)
-                           .mapToObj(x -> x + " ")
-                           .reduce((x, y) -> x + y).orElse("");
-        bw.write(ans);
-        bw.flush();
-        bw.close();
-    }
- }
- ```
+<script src="https://gist.github.com/slackjawed12/a5820e1d6cb440bdb35e24dd862ee6b7.js"></script>
 
 ### 1) 입력
  입력 그대로 배열에 저장했다.
@@ -70,6 +58,6 @@ sidebar:
                     .reduce((x, y) -> x + y).orElse("");
  ```
 
-* * *
+
 ## 3. 더 공부할 것
  stream의 reduce과, Optional의 orElse. 앞으로 적용할 데가 많을 것 같다.
