@@ -1,8 +1,8 @@
 ---
 layout: single
 
-title: "자바 Stream 써서 문제 풀기"
-categories: algorithm
+title: "[Java] Stream 써서 배열 두 개가 주어지는 문제 풀기"
+categories: java
 tag: [Java, algorithm, stream]
 # 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성
 toc : true # table of contents 추가
@@ -19,21 +19,28 @@ sidebar:
 
 ## 1. 문제
  
-  링크 문제처럼 두 개의 배열이 주어지는 경우, Stream으로 두 개의 배열을 연산하는 법을 몰라서 반복문을 써왔다.
-
+ [문제 링크](https://www.acmicpc.net/problem/25304)
+  
+ 링크 문제처럼 두 개의 배열이 주어져서 연산을 해야되는 경우, <br/>
+ Stream으로 두 개의 배열끼리 연산하는 법을 몰라서 반복문을 써왔다.
 
 ## 2. 해결 방법
 
 ### 1) Java 코드
 
 ```java
-long sum = entry.stream().map(x-> Arrays.stream(x).reduce((a,b)->a*b).orElse(0))
+List<int[]> entry = new ArrayList<>();
+// entry에 배열 입력 - 크기가 2인 배열이 List의 요소가 된다.
+long sum = entry.stream().map( x -> 
+                Arrays.stream(x)
+                .reduce((a, b) -> a * b).orElse(0))
                 .map(Integer::toUnsignedLong)
                 .reduce(Long::sum).orElse((long)0);
 ```
 
-## 3. 알게 된 것과 더 공부할 점
-
+## 3. 알게 된 것
+  
+  stream의 map을 쓰면 배열도 형 변환 할 수 있다.
   
 <br/>
 <br/>
