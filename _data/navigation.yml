@@ -14,18 +14,25 @@ docs:
     children:
       - title: Stream
         url: /categories/java/stream
+        
   - title: "Algorithm"
     children:
       - title: "Algorithm"
         url: /categories/algorithm/
       - title: "Coding Test"
         url: /categories/codingtest/
+
   - title: "Computer Architecture"
     children:
       - title: "SPIM"
         url: /categories/spim/
+
   - title: "Blog"
     url: /categories/blog/
+  
+  - title: "IDE"
+    url: /categories/blog/
+
   - title: "항해99"
     children:
       - title: "TIL"
