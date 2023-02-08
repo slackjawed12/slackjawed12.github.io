@@ -30,13 +30,11 @@ docs:
   - title: "Blog"
     url: /categories/blog/
   
+  - title: "Git"
+    url: /categories/git/
+
   - title: "IDE"
     url: /categories/ide/
-
-  - title: "항해99"
-    children:
-      - title: "TIL"
-        url: /categories/til99/
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
