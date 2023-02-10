@@ -1,9 +1,9 @@
 ---
 layout: single
 
-title: "[IDE][PyCharm] html 파일에서 JavaScript가 안 먹을 때 해결 방법"
+title: "[IDE][PyCharm] html 파일에서 script가 작동하지 않을 때 해결 방법"
 categories: ide
-tag: [IDE, PyCharm, HTML]
+tag: [IDE, PyCharm, HTML, script]
 # 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성
 toc : true # table of contents 추가
 use_math: true # 수식 쓸 경우 추가
@@ -19,7 +19,8 @@ sidebar:
 
 ## 1. 상황
  
- PyCharm 사용 중에 html 로컬 파일 url로 들어가 자바스크립트 작동을 테스트 했다. 버튼에 onclick으로 script 태그에 선언된 함수를 호출하는 단순한 상황이었으므로 따로 로컬 서버를 띄우지 않아도 스크립트 자체는 당연히 동작해야 했다. 문법도 틀린 것이 없었다. 근데 버튼을 눌러도 아무 반응이 없었다
+ PyCharm 사용 중에 html 로컬 파일 url로 들어가 자바스크립트 작동을 테스트 했다.<br/>
+ 버튼에 onclick으로 script 태그에 선언된 함수를 호출하는 단순한 상황이었으므로 따로 로컬 서버를 띄우지 않아도 스크립트 자체는 당연히 동작해야 했다. 문법도 틀린 것이 없었다. 근데 버튼을 눌러도 아무 반응이 없었다.<br/>
 
 ## 2. 해결 방법
  로컬 서버를 띄우고, Bootstrap CDN 태그도 바꾸고 다 했으나 먹히지 않았다.<br/>
