@@ -88,9 +88,10 @@ sidebar:
  찾아보니 string 변수가 parameter로 들어갈 때는 문자열로 처리해야 돼서 \\'${arg}\\' 형식으로 전해줘야 했다..<br/>
  마지막으로 클라이언트가 보내준 string을 서버에서 받을 때는 다시 ObjectId로 변환시켜야 했으므로, bson 라이브러리를 활용했다.<br/>
  이 과정 끝에 다음 코드로 게시물을 수정할 수 있었다. <br/>
+
  ``` python
  from bson import ObjectId
- update_one{{'_id':ObjectId(id_receive)}, {'$set':{'comment':comment_receive}}}
+ update_one({'_id':ObjectId(id_receive)}, {'$set':{'comment':comment_receive}})
  ```
 
  삭제는 쿼리만 다르게 하고 앞의 과정과 동일하게 처리했다.
