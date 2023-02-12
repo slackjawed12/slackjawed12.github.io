@@ -8,5 +8,5 @@ sidebar:
     nav: "docs"
 ---
 
-{% assign posts = site.categories.TIL99 %}
+{% assign posts = site.categories.til99 %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
