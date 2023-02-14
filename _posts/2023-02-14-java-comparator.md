@@ -18,11 +18,11 @@ sidebar:
 ## 1. 문제 상황
  
  문제를 풀다가 TreeMap의 자동으로 정렬되는 특성을 이용해서 문제를 풀려고 했는데, Key 기준 정렬이라 의도한대로 풀리지 않았다.<br/>
- 그래서 Java에서 C++의 pair 개념에 대응하는 AbstrackMap.SimpleEntry를 사용했다.<br/> 
+ 그래서 Java에서 C++의 pair 개념에 대응하는 AbstractMap.SimpleEntry를 사용했다.<br/> 
  문제는 SimpleEntry\<K, V\>가 Comparable이 아니라서, TreeSet이나 TreeMap의 Key로 쓸 수 없다는 것이었다.<br/>
  
  List의 sort 메소드를 쓰거나, TreeMap, TreeSet의 요소가 되려면 해당 클래스는 Comparable\<T\>를 구현했거나 Comparator를 구현해야한다.<br/> 
- Comparable의 구현과 Comparator의 구현 클래스 작성에서 차이가 있는데, 어찌됐건 둘 중 하나는 반드시 구현해야 한다.
+ 직접 해보니 Comparable의 구현과 Comparator의 구현은 작성에서 약간 차이가 있는데, 어찌됐건 둘 중 하나는 반드시 구현해야 한다.
  
 
 ## 2. Comparator 구현 클래스
@@ -50,7 +50,7 @@ implements Comparator<AbstractMap.SimpleEntry<Integer, Integer>> {
 - compare(T t1, T t2)의 return값이 0이면 t1과 t2는 같다.
 - compare(T t1, T t2)의 return값이 음수이면 t1이 t2 앞에 온다.
 
-이 규칙을 바탕으로 compare 함수를 리턴값을 보자. 두 객체의 key값이 다르면 o1.getKey()-o2.getKey()를 리턴하며 이 값이 양수면 o1이 o2 앞인데, 차이가 양수라는 것은 o1이 o2보다 크다는 것이므로 o2가 앞에 오면서 오름차순이 구현된다. 이후 규칙은 value에 대해 동일하게 적용된다. 헷갈리면 빌드하고 다시 바꿔서 돌려도 될 듯 하다..
+이 규칙을 바탕으로 compare 함수를 리턴값을 보자. 두 객체의 key값이 다르면 o1.getKey()-o2.getKey()를 리턴하며 이 값이 양수면 o1이 o2 앞인데, 차이가 양수라는 것은 o1이 o2보다 크다는 것이므로 o2가 앞에 오면서 오름차순이 구현된다. 이후 규칙은 value에 대해 동일하게 적용된다. 헷갈리면 빌드 내리고 다시 바꿔서 돌려도 될 듯 하다..
 
 ## 3. 컬렉션에서 Comparator 구현 클래스 사용하기
 
