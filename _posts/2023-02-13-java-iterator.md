@@ -16,7 +16,7 @@ sidebar:
 ---
 
 ## 1. 사용 상황
-[문제 링크](https://www.acmicpc.net/problem/2163) <br/>
+[문제 링크](https://www.acmicpc.net/problem/1032) <br/>
  
  HashSet으로 각 String의 인덱스에 해당하는 Character를 저장하고, Set의 크기가 1이면 문자 그대로, 1이 넘어가면 와일드카드인 물음표를 concat 하는 식으로 풀이했다.<br/>
  근데 HashSet에서 값을 어떻게 꺼내오는지 까먹어서 iterator에 대한 개념을 다시 정리했다.<br/>
