@@ -81,7 +81,7 @@ sidebar:
  이 ObjectId를 넘긴 후 다시 받아오는 것은 꽤 험난한 여정이었다. 프로젝트가 거의 마감될 즈음에서야 겨우 구현했다.
 
 ### bson, ObjectId 
- mongoDB의 ObjectId값은 string이어서, python에서 str로 변환시켜줘야했다.<br/> 
+ mongoDB의 ObjectId값은 string이 아니어서, 따로 str로 변환시켜줘야했다.<br/> 
  변환하지 않고 그냥 넘기면 Serializable하지 않다고 계속 TypeError가 났다.<br/>
  여차저차 string으로 변환하는 법을 찾아서 button의 onclick 함수의 인자로 ObjectId의 string을 넘겼다.<br/> 
  이번엔 콘솔에도 잘 찍히는 string이 아무리 클릭해도 반응하지 않았다.<br/>
