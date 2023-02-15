@@ -79,7 +79,7 @@ sidebar:
  Set<Long> keySet = map.keySet();
  
  // map.get(key)로 value를 구해서 순회한다.
- for(Long key : keySet){
+ for(Long key : keySet) {
     System.out.println("key : " + key + ", value : " + map.get(key));
  }
 

@@ -21,6 +21,9 @@ docs:
         url: /categories/algorithm/
       - title: "Coding Test"
         url: /categories/codingtest/
+  
+  - title: "SQL"
+    url: /categories/sql/
 
   - title: "Computer Architecture"
     children:
