@@ -18,12 +18,8 @@ sidebar:
 ## 1. 문제 개요
 [문제 링크](https://www.acmicpc.net/problem/1271)
 
-### 입력
 첫째 줄에는 가진 돈 $n$과 돈을 받을 대상의 수 $m$이 주어진다. ( $1 \leq m \leq n \leq 10^{1000}$, $m$과 $n$은 $10$진수 정수)
-
-### 출력
-첫째 줄에 대상 하나에게 돌아가는 돈의 양을 출력한다. 그리고 두 번째 줄에는 1원씩 분배할 수 없는 남는 돈을 출력한다.
-
+두 번째 줄에는 1원씩 분배할 수 없는 남는 돈을 출력한다.
 
 ## 2. 풀이 코드
 
@@ -48,8 +44,3 @@ sidebar:
  BigInteger ans1 = arr.get(0).divide(arr.get(1));
  BigInteger ans2 = arr.get(0).remainder(arr.get(1));
  ```
-
-
-## 3. 더 공부할 것
- BigInteger의 활용 - 내부에서 구체적으로 어떻게 돌아가는지는 알아야겠다.<br/>
- collect.(Collectors.toList()); - 이것들도 앞으로 자주 써먹게 될 것 같다.
