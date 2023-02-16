@@ -8,7 +8,7 @@ sidebar:
     nav: "docs"
 ---
 
-{% assign posts = site.categories.sql.mysql %}
+{% assign posts = site.categories.mysql %}
 {% for post in posts %} 
 {% include archive-single.html type=page.entries_layout %} 
 {% endfor %}
