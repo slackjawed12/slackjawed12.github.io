@@ -8,5 +8,5 @@ sidebar:
     nav: "docs"
 ---
 
-{% assign posts = site.categories.java.stream %}
+{% assign posts = site.categories.stream %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
