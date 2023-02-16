@@ -24,6 +24,9 @@ docs:
   
   - title: "SQL"
     url: /categories/sql/
+    children:
+      - title: "MySQL"
+        url: /categories/sql/mysql/
 
   - title: "Computer Architecture"
     children:

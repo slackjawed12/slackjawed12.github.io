@@ -1,9 +1,9 @@
 ---
 layout: single
 
-title: "[SQL] SQL 기초 적용 - SELECT"
-categories: sql
-tag: [SQL, SELECT]
+title: "[MySQL] MySQL - SELECT"
+categories: [sql, mysql]
+tag: [SQL, MySQL, SELECT, ORDER BY, COUNT, AS, SELECT IF]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가
 use_math: true # 수식 쓸 경우 추가
@@ -84,31 +84,22 @@ order by price desc limit 1
 
 ``` sql
 -- 2021년 가입 회원 중 20세 이상, 29세 이하 회원의 수
-SELECT count (*) as users from user_info
-where joined >= '2021-01-01' and joined<='2021-12-31' and
-age >= 20 and age <= 29;
-```
-
-## 5. 날짜 처리
-
-[MySQL 날짜, 시간 함수](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html) 링크에 자세히 나와 있다.<br/>
-대표적인 것만 정리해보았다.
-
-### YEAR, MONTH, DAY
-
-각각 해당 날짜의 연도, 월, 일을 찾을 때 사용한다.
-
-``` sql
--- 2021년 가입 회원 중 20세 이상, 29세 이하 회원의 수
-SELECT count (*) as users from user_info
-WHERE YEAR(joined) = 2021 AND age >= 20 AND age <= 29;
-```
-
-### DATE_FORMAT
-
-``` sql
--- 2021년 가입 회원 중 20세 이상, 29세 이하 회원의 수
-SELECT count (*) as users from user_info
-WHERE DATE_FORMAT(JOINED, '%Y') = 2021 AND 
+SELECT COUNT(*) AS users FROM user_info
+WHERE joined >= '2021-01-01' AND joined<='2021-12-31' AND
 age >= 20 AND age <= 29;
+```
+
+## 5. SELECT IF
+
+조건이 들어갈 때 사용한다.
+
+### IFNULL
+``` sql
+-- 경기도 위치한 공장 찾기
+-- 조건 : 냉동시설 여부(freezer_yn)가 null 이면 'N', 아니면 값 그대로 출력
+SELECT warehouse_id, warehouse_name, address, 
+IFNULL(freezer_yn, 'N') AS freezer_yn
+FROM food_warehouse
+WHERE left(address, 3) = '경기도'
+ORDER BY warehouse_id ASC;
 ```

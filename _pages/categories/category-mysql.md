@@ -1,14 +1,14 @@
 ---
-title: "SQL"
+title: "MySQL"
 layout: archive
-permalink: /categories/sql/
+permalink: /categories/sql/mysql
 author_profile: true
 sidebar_main: true
 sidebar:
     nav: "docs"
 ---
 
-{% assign posts = site.categories.sql %}
+{% assign posts = site.categories.mysql %}
 {% for post in posts %} 
 {% include archive-single.html type=page.entries_layout %} 
 {% endfor %}
