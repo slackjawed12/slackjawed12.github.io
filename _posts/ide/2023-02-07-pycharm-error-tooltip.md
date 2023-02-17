@@ -2,7 +2,7 @@
 layout: single
 
 title: "[IDE][PyCharm] html 파일에서 script가 작동하지 않을 때 해결 방법"
-categories: ide
+categories: [ide, pycharm]
 tag: [IDE, PyCharm, HTML, script]
 # 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성
 toc : true # table of contents 추가

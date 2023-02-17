@@ -12,7 +12,7 @@ docs:
   - title: "Java"
     url: /categories/java/
     children:
-      - title: Stream
+      - title: "Stream"
         url: /categories/java/stream
         
   - title: "Algorithm"
@@ -41,6 +41,11 @@ docs:
 
   - title: "IDE"
     url: /categories/ide/
+    children:
+      - title: "PyCharm"
+        url: /categories/ide/pycharm/
+      - title: "IntelliJ"
+        url: /categories/ide/intellij/
 
   - title: "TIL"
     url: /categories/til99/
