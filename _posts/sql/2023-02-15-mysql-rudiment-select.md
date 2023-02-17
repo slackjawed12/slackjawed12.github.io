@@ -89,6 +89,17 @@ WHERE joined >= '2021-01-01' AND joined<='2021-12-31' AND
 age >= 20 AND age <= 29;
 ```
 
+## 5. DISTINCT
+
+중복을 제거한 항목을 가져온다.
+``` sql
+-- null 이 아니고 중복되지 않는 이름의 개수를 조회한다.
+SELECT 
+    COUNT (DISTINCT name) as animals
+FROM animal_ins
+WHERE name IS NOT NULL;
+```
+
 ## 5. SELECT IF
 
 조건이 들어갈 때 사용한다.
