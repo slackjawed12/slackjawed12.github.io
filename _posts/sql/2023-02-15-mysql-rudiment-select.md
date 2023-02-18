@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: "[MySQL] MySQL - SELECT"
+title: "[MySQL] SELECT"
 categories: sql
 tag: [SQL, MySQL, SELECT, ORDER BY, COUNT, AS, SELECT IF]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
@@ -19,7 +19,30 @@ sidebar:
 SQL의 SELECT 쿼리로 데이터를 조회하는 방법을 연습하고 있다.<br/>
 SELECT ~ FROM ~ WHERE 의 기본구조를 바탕으로, 문제에 따라 ORDER BY, COUNT 등 여러 조건들과 연산자를 적용해보았다.
 
-## 2. ORDER BY
+## 2. FROM
+
+데이터를 가져올 테이블을 선택한다.
+아래와 같이 공백을 하나 두고 다른 이름을 지정하면 별칭처럼 사용할 수 있다.
+
+```sql
+SELECT FH.FLAVOR FROM FIRST_HALF FH
+```
+
+## 3. WHERE 조건문 작성
+
+### LIKE
+
+'%' 와 함께 사용되어 문자열이 포함된 데이터를 선택한다.
+
+``` sql
+-- 옵션에 네비게이션이 포함된 모든 차종 찾기
+SELECT *
+FROM CAR_RENTAL_COMPANY_CAR
+WHERE OPTIONS LIKE '%네비게이션%'
+ORDER BY CAR_ID DESC;
+```
+
+## 4. ORDER BY
 
 ### WHERE + ORDER BY
 
@@ -68,7 +91,7 @@ SELECT MAX(price) FROM product;
 ```
 
 
-## 3. AS
+## 5. AS
 
 출력할 컬럼의 이름을 바꾸려면 뒤에 AS를 붙여주면 된다.
 
@@ -78,18 +101,7 @@ SELECT price as max_price from product
 order by price desc limit 1
 ```
 
-## 4. COUNT
-
-출력할 컬럼의 개수를 세려면 COUNT를 사용한다.
-
-``` sql
--- 2021년 가입 회원 중 20세 이상, 29세 이하 회원의 수
-SELECT COUNT(*) AS users FROM user_info
-WHERE joined >= '2021-01-01' AND joined<='2021-12-31' AND
-age >= 20 AND age <= 29;
-```
-
-## 5. DISTINCT
+## 6. DISTINCT
 
 중복을 제거한 항목을 가져온다.
 ``` sql
@@ -100,7 +112,7 @@ FROM animal_ins
 WHERE name IS NOT NULL;
 ```
 
-## 5. SELECT IF
+## 7. SELECT IF
 
 조건이 들어갈 때 사용한다.
 

@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: "[MySQL] MySQL - 날짜, 시간 내장 함수 정리"
+title: "[MySQL] 날짜, 시간 내장 함수 정리"
 categories: [sql, mysql]
 tag: [SQL, MySQL, DATE_FORMAT]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
@@ -38,4 +38,27 @@ WHERE YEAR(joined) = 2021 AND age >= 20 AND age <= 29;
 SELECT count (*) as users from user_info
 WHERE DATE_FORMAT(JOINED, '%Y') = 2021 AND 
 age >= 20 AND age <= 29;
+```
+
+## 4. 날짜 간 연산
+
+### DATE_ADD, DATE_SUB
+
+### DATEDIFF
+
+DAY 차이를 계산할 때 사용한다.
+DATEDIFF(날짜1, 날짜2) 형식으로 사용한다.
+
+### TIMESTAMPDIFF
+
+두 날짜의 차이 값을 구할 수 있다.<br/>
+TIMESTAMPDIFF(단위, 날짜1, 날짜2) 형식으로 사용한다.<br/>
+단위는 SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER(분기), YEAR 를 쓸 수 있다.<br/>
+
+```sql
+SELECT *
+IF(TIMESTAMPDIFF(DAY, START_DATE, END_DATE)>=29, '장기 대여', '단기 대여') AS RENT_TYPE
+FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+WHERE YEAR(START_DATE)=2022 AND MONTH(START_DATE)=9
+ORDER BY HISTORY_ID DESC;
 ```
