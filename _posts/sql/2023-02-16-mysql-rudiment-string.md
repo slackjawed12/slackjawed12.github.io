@@ -28,12 +28,27 @@ WHERE INSTR(address, '강원도') > 0 ORDER BY factory_id;
 
 ## 3. LIKE
 
-와일드카드 표현식인 %와 함께 사용해야 한다.
+와일드카드 표현식인 %와 함께 사용할 수 있다.
 
 ``` sql
--- 주소가 강원도인 공장 찾기
+-- 사례 1) 주소 문자열에 '강원도' 가 들어가 있는 공장 찾기
 SELECT factory_id, factory_name, address FROM food_factory 
 WHERE address LIKE '%강원도%' ORDER BY factory_id;
+```
+
+여러 조건이 필요하면 OR로 연결할 수 있다.<br/>
+해당 조건으로 코드가 길어지면 NOT LIKE를 시도해보자.<br/>
+
+```sql
+-- 중성화 한 동물은 O, 안 한 동물은 X로 출력
+-- CASE THEN 구문으로도 작성할 수 있다.
+SELECT
+    ANIMAL_ID,
+    NAME,
+    IF(SEX_UPON_INTAKE LIKE '%Neutered%' OR 
+       SEX_UPON_INTAKE LIKE '%Spayed%', 'O', 'X') AS 중성화
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID;
 ```
 
 

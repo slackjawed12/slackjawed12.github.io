@@ -17,8 +17,11 @@ sidebar:
 
 ## 1. 집계함수 정리
 
+집계함수(Aggregate Function)는 GROUP BY 문과 짝지어서, 특정 조건의 통계를 낼 때 자주 쓰인다.<br/>
+물론 GROUP BY를 쓰지 않고 집계함수만 따로 사용할 수 있다.<br/> 
 [집계함수 목록](https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html)
-링크에 잘 나와 있다.
+링크에 여러 집계함수의 사용법들이 잘 나와 있다.<br/>
+
 
 ## 2. AVG
 
@@ -35,7 +38,8 @@ WHERE CAR_TYPE='SUV';
 
 ## 3. COUNT
 
-출력대상 레코드의 개수를 세려면 COUNT를 사용한다.
+출력대상 레코드의 개수를 세려면 COUNT를 사용한다.<br/>
+COUNT(*) 은 NULL 값이 포함된 행도 카운트하고, COUNT(column) 처럼 컬럼 이름을 명시하면 NULL 값을 제외한다.<br/>
 
 ``` sql
 -- 2021년 가입 회원 중 20세 이상, 29세 이하 회원의 수
