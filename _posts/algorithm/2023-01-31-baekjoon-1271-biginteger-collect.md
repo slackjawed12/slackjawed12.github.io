@@ -16,7 +16,7 @@ sidebar:
 ---
 
 ## 1. 문제 개요
-[문제 링크](https://www.acmicpc.net/problem/1271)
+[문제 링크](https://www.acmicpc.net/problem/1271)  <br/>
 
 첫째 줄에는 가진 돈 $n$과 돈을 받을 대상의 수 $m$이 주어진다. ( $1 \leq m \leq n \leq 10^{1000}$, $m$과 $n$은 $10$진수 정수)
 두 번째 줄에는 1원씩 분배할 수 없는 남는 돈을 출력한다.
@@ -25,8 +25,6 @@ sidebar:
 
  다루는 수가 매우 크기 때문에, primitve type은 쓸 수가 없다. 이 문제가 브론즈5인 이유는 Java의 경우 API에 BigInteger 클래스가 있어서, 아무리 큰 수여도 메소드로 알아서 풀리기 때문이다.<br/> 
  C나 C++로 풀려면 골치아프다. 문자열로 두 수를 받고 나눗셈을 직접 구현해야 할 것이다.
- 
- <script src="https://gist.github.com/slackjawed12/65b81f2204a37db42bd4279448c1b6c1.js"></script>
    
 ### 1) 입력
  BigInteger의 List 컬렉션으로 입력을 받아보았다. new 연산자도 ::로 축약 가능하다.<br/>
