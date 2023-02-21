@@ -28,7 +28,8 @@ SELECT
 FH.FLAVOR 
     FROM FIRST_HALF FH
     INNER JOIN ICECREAM_INFO II
-    ON FH.FLAVOR = II.FLAVOR 
+-- icecream_info 테이블의 flavor와 first_half 테이블의 flavor가 같은 것만 가져옴
+    ON FH.FLAVOR = II.FLAVOR    
 WHERE TOTAL_ORDER > 3000 AND INGREDIENT_TYPE = 'fruit_based' 
 ORDER BY TOTAL_ORDER DESC
 ```

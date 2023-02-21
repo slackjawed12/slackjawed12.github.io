@@ -40,7 +40,10 @@ WHERE DATE_FORMAT(JOINED, '%Y') = 2021 AND
 age >= 20 AND age <= 29;
 ```
 
-## 4. 날짜 간 연산
+## 4. EXTRACT(unit FROM date)
+
+
+## 5. 날짜 간 연산
 
 ### DATE_ADD, DATE_SUB
 
