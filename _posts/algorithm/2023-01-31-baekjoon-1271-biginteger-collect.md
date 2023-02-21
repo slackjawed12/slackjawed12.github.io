@@ -16,9 +16,9 @@ sidebar:
 ---
 
 ## 1. 문제 개요
-[문제 링크](https://www.acmicpc.net/problem/1271)  <br/>
 
-첫째 줄에는 가진 돈 $n$과 돈을 받을 대상의 수 $m$이 주어진다. ( $1 \leq m \leq n \leq 10^{1000}$, $m$과 $n$은 $10$진수 정수)
+첫째 줄에는 가진 돈 $n$과 돈을 받을 대상의 수 $m$이 주어진다.   
+($1 \leq m \leq n \leq 10^{1000}$, $m$과 $n$은 $10$진수 정수)  
 두 번째 줄에는 1원씩 분배할 수 없는 남는 돈을 출력한다.
 
 ## 2. 풀이 코드
@@ -28,17 +28,18 @@ sidebar:
    
 ### 1) 입력
  BigInteger의 List 컬렉션으로 입력을 받아보았다. new 연산자도 ::로 축약 가능하다.<br/>
-   
- ``` java
- List<BigInteger> arr = Arrays.stream(br.readLine().split(" "))
+
+
+``` java
+List<BigInteger> arr = Arrays.stream(br.readLine().split(" "))
                               .map(BigInteger::new)
                               .collect(Collectors.toList());
- ```
+```
  
 ### 2) BigInteger의 이용
  BigIneger의 경우 사칙연산을 하려면 내장된 메소드를 활용해야 한다. 나눗셈은 divde, 나머지 연산은 remainder이다.<br/>
 
- ``` java
- BigInteger ans1 = arr.get(0).divide(arr.get(1));
- BigInteger ans2 = arr.get(0).remainder(arr.get(1));
- ```
+``` java
+BigInteger ans1 = arr.get(0).divide(arr.get(1));
+BigInteger ans2 = arr.get(0).remainder(arr.get(1));
+```
