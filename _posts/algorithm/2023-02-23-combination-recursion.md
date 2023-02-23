@@ -18,7 +18,7 @@ sidebar:
 ---
 
 $ n$개 대상에서 $r$ 개를 뽑아 나열하는 모든 경우의 수들은 재귀적으로 구현할 수 있다.<br/>
-항상 백트래킹, dfs 개념을 적용해서 반복문을 적용한 재귀로 풀어왔는데, 이참에 깔끔히 정리해야겠다.
+항상 이런 조합론 문제들은 백트래킹, dfs 개념을 적용해서 내부에서 loop를 도는 재귀로 풀었다. 다른 사람들 풀이를 보면 경우를 나눠서 재귀함수를 두번 호출하는 경우도 봤는데, 직관적이고 깔끔해서 괜찮아 보였다. 다만, 성능 측면에서 어느 방식을 선택해야 할지 헷갈렸다. 재귀 공부도 할 겸 이참에 정리해보았다.<br/>
 
 ## 1. 조합 - 경우의 수
 일단 조합의 경우의 수부터 살펴보자.<br/>
@@ -50,7 +50,7 @@ public int combination(int n, int r) {
 이제 4개 중에서 2개를 뽑는 경우의 수가 6개임은 위의 combination(4, 2)를 이용해서 확인할 수 있다. 
 그런데, 실제 조합 자체를 뽑아내고 싶다면 combination만으로는 부족하다. 즉, 6개라는 수가 아니라 (1, 2), (1, 3), (1, 4), ... (3, 4)의 6개 순서쌍이 필요하면 조합을 뽑아줄 다른 함수가 필요하다는 것이다. 대부분의 문제는 이렇게 특정 배열로부터 조합을 뽑아내거나, 조합들을 배열에 집어넣는 등 조합으로부터 특정 조작이 따라오게 된다.
 
-### 재귀 구현
+### 재귀 구현 - combi1
 
 조합 경우의 수를 구했을 때와 유사하게, 직관적인 관점에서 재귀를 구현하는 과정이다.<br/> 
 list는 조합을 뽑을 대상 리스트, store는 뽑은 조합을 저장해둘 리스트로 설정했다. 그리고 현재까지 뽑은 대상의 수를 d, list에서 뽑을 대상의 위치를 i, 뽑는 대상의 수를 r로 두었다.<br/> 
@@ -61,46 +61,67 @@ n은 list.size()로 대체했다. 사실 d는 필요 없는 매개변수인데, 
 
 ```java
 // d : 현재 뽑은 대상 수(depth), i : 대상의 위치(index), r : 뽑을 대상의 수
-public void getCombi(List<Integer> list, List<Integer> store, int d, int i, int r) {
+public void combi1(List<Integer> list, List<Integer> store, int d, int i, int r) {
   if (r == 0) {
     store.forEach(x -> System.out.print(x + " "));
     System.out.println();
   } else if (i != list.size()) { 
       store.add(list.get(i));   // 뽑는다 (Choose)
-      getCombi(list, store, d + 1, i + 1, r - 1); // 뽑은 경우 나머지 조합을 구한다(Explore)
+      combi1(list, store, d + 1, i + 1, r - 1); // 뽑은 경우 나머지 조합을 구한다(Explore)
       store.remove(d);  // 뽑은걸 뺀다 (Unchoose)
-      getCombi(list, store, d, i + 1, r); // 안 뽑은 경우 나머지 조합을 구한다
+      combi1(list, store, d, i + 1, r); // 안 뽑은 경우 나머지 조합을 구한다
   }
 }
 ```
-list를 (1,2,3,4,5,6)으로 초기화하고 3개를 뽑아서 함수를 돌려보면, 조합 결과는 (1 2 3) 부터 (4 5 6)까지 20개가 출력된다.<br/>
+list를 (1,2,3,4,5,6)으로 초기화하고 3개를 뽑아서 함수를 돌려보면, 조합 결과는 (1 2 3) 부터 (4 5 6)까지 20개가 출력된다. 카운트 변수를 넣고 매 호출마다 횟수를 세보면 83번이 나온다.
 
-### 속도의 개선
-getCombi의 아쉬운 점은 조합을 구해봐야 의미가 없는 상황에도 getCombi를 호출한다는 것이다.<br/>
+### 속도를 개선한 버전 - combi2
+combi1의 아쉬운 점은 조합을 구해봐야 의미가 없는 상황에도 combi1를 호출한다는 것이다.<br/>
 예를 들면, i의 위치가 5인데 하나도 안뽑아서 d가 0인 상황을 생각해보자. 5, 6을 다 뽑아도 조합이 완성되지 않는데, 호출 가능한 조건이 list의 끝까지 가는 것이니 어쨌든 i가 끝까지 도달하게 된다. 조건문을 바꿔서 이를 개선해보자.
 
-
 ```java
-public void getCombiImproved(List<Integer> list, List<Integer> store, int d, int i, int r) {
+public void combi2(List<Integer> list, List<Integer> store, int d, int i, int r) {
   if (r == 0) {
     store.forEach(x -> System.out.print(x + " "));
     System.out.println();
   } else if (r <= list.size() - i) {  // 개선
       store.add(list.get(i));
-      getCombiImproved(list, store, d + 1, i + 1, r - 1); 
+      combi2(list, store, d + 1, i + 1, r - 1); 
       store.remove(d);
-      getCombiImproved(list, store, d, i + 1, r);
+      combi2(list, store, d, i + 1, r);
   }
 }
 ```
 
-위에서 언급한 '안 돌아도 되는 조건'을 구체화해보자. 매개변수 r에 현재 뽑아야 할 대상의 개수가 저장되어 있고, list.size()가 대상의 개수이다. 그리고 i에는 뽑을 대상의 위치가 저장되어 있으므로, r이 list.size()-i 보다 작거나 같으면 된다.
+위에서 언급한 '안 돌아도 되는 조건'을 구체화해보자. 매개변수 r에 현재 뽑아야 할 대상의 개수가 저장되어 있고, list.size()가 대상의 개수이다. 그리고 i에는 뽑을 대상의 위치가 저장되어 있으므로, r이 list.size()-i 보다 작거나 같으면 된다. 마찬가지로 카운트 변수를 주고 횟수를 출력해보면 69번이 나온다. combi1 보다 개선되었지만, 아직 호출 횟수가 실제 구해야하는 값보다는 많은 것 같다.
 
 
-### 더 개선??
+### 더 개선하기 - combi3
 
-문제는, 이렇게 바꿔봐야 아주 조금 좋아질 뿐, 최고존엄 중첩 for loop에 비하면 호출 횟수가 매우 많다.<br/>
-그래서 decision tree를 직접 그려봤다. 이유는 최종 decision, 즉 r값이 원하는 값에 도달할 때 까지 함수를 호출해야 하므로 여기서 오버헤드가 생기는 것 같다. 더 좋은 해결책은 모르겠다. 더 공부해보고 추후에 추가해야겠다.
+아직 최고존엄 중첩 for loop에 비하면 호출 횟수가 매우 많다. 아래는 좀 더 개선한 것이다. 이번에 store를 배열로 줬는데, list로 설정하는 것보다 초기 크기를 설정하는데 편하기 때문이었다. 또, combi3를 오버로딩해서 실제로는 helper함수가 재귀호출로 돌게 하였다.
+
+```java
+public static void combi3(List<Integer> arr, int r) {
+  int[] store = new int[r];
+  combinations(arr, store, 0, r);
+}
+
+private static void combi3(List<Integer> arr, int[] store, int i, int r) {
+  if (r == 0) {            
+    for (int x : store) System.out.print(x + " ");
+    System.out.println();
+  }
+
+  for (int j = i; j < arr.size(); j++) {
+    store[store.length - r] = arr.get(j);   // choose
+    combinations(arr, store, j + 1, r - 1); // 뽑은 경우만 본다.
+  }
+}
+```
+카운트를 세보면 42로 줄어든다. combi3는 재귀 함수 안에서 for loop를 돌린다. 이는 뽑지 않은 경우를 배제하고 뽑은 경우만을 탐색하여, depth를 늘리지 않고 탐색해야 될 부분의 시작점부터 끝까지 choose - explore - unchoose를 진행한다고 생각할 수 있다. 재귀 구현에서 속도를 개선했던 방식과 마찬가지로, 이것도 loop 변수인 j의 반복 범위를 줄여서 호출 횟수를 개선할 수 있다. 
+
+### Descision Tree를 통한 성능 개선의 이유 분석
+차이점이 궁금하여 decision tree를 직접 손으로 그려봤다. 직관적인 방식을 따라 뽑지 않은 경우를 탐색(combi2)하면 depth가 깊어지면서 호출 횟수가 많아졌다. 반면 뽑은 경우만 탐색(combi3)하면 넓게 호출하는 대신 depth가 얕아진다. 
 
 
 틀린 부분은 댓글 부탁드립니다.
