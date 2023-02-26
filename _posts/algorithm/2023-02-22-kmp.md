@@ -13,7 +13,7 @@ sidebar:
   nav : "docs"
 # search : false # 검색 시 결과에 나타날지 여부 결정
 
-# 로컬 개발환경 설정 : slackjawed12.github.io 디렉터리 이동 후 bundle exec jekyll serve 명령어 실행
+# 로컬 개발환경 : slackjawed12.github.io 디렉터리 이동 후 bundle exec jekyll serve 실행
 # 명령어에 나온 포트가 4000이면 localhost:4000 접속
 ---
 
