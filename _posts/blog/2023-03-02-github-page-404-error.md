@@ -15,7 +15,7 @@ sidebar:
 [//]: # (# search : false # 검색 시 결과에 나타날지 여부 결정)
 ---
 
-결론부터 얘기하면 url 설정에 /을 일관되게 붙이지 않았기 때문이다.. 아래는 삽질의 기록이다.<br/>
+결론부터 얘기하면 url 끝에 붙는 '/'인 트레일링 슬래쉬를 일관되게 붙이지 않았기 때문이다.. 아래는 삽질의 기록이다.<br/>
 
 ## 1. 문제의 배경 - 카테고리 세분화
 
@@ -37,21 +37,19 @@ docs:
       - title: "MySQL"
         url: /categories/sql/mysql/
 ```
+
 그리고 자식 카테고리에 해당하는 md파일을 만들어 아래와 같이 archive 페이지로 설정했다.
 
 ```markdown
 <!-- category-java-stream.md -->
----
 title: "Stream"
 layout: archive
-<!-- 얘는 끝에 / 안 붙임. 로컬에서는 되는데 원격에선 404 -->
+<!-- 트레일링 슬래쉬 안 붙임. 로컬에서는 되는데 원격에선 404 -->
 permalink: /categories/java/stream 
-<!-- 생략 -->
----
 
-{% assign posts = site.categories.stream %}
-{% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
+<!-- 생략 -->
 ```
+
 즉, /categories/java 에 들어가면 java 카테고리에 해당하는 글이 모두 보이게 하고, /categories/java/stream은 java 카테고리 중 stream에 대한 글만 보이도록 하려는 의도였다. 그리고 로컬에서 띄웠을 때 아주 잘 작동했다.
 
 ## 2. 문제 상황
