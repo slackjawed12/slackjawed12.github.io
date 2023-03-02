@@ -1,7 +1,7 @@
 ---
 title: "Stream"
 layout: archive
-permalink: /categories/java/stream
+permalink: /categories/java/stream/
 author_profile: true
 sidebar_main: true
 sidebar:

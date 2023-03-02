@@ -1,7 +1,7 @@
 ---
-title: "IDE"
+title: "Intellij"
 layout: archive
-permalink: /categories/ide/intellij
+permalink: /categories/ide/intellij/
 author_profile: true
 sidebar_main: true
 sidebar:
