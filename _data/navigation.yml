@@ -9,11 +9,14 @@ main:
 
 # 사이드바에 나타날 문서 구분 설정
 docs:
+  - title: "Spring"
+    url: /categories/spring/
+
   - title: "Java"
     url: /categories/java/
     children:
       - title: "Stream"
-        url: /categories/java/stream
+        url: /categories/java/stream/
         
   - title: "Algorithm"
     children:
