@@ -27,9 +27,9 @@ sidebar:
 
 ## 3. Exception
 
-&nbsp; &nbsp; 개인 실습 프로젝트에서는 GlobalExceptionHandler를 따로 만들어 해당 클래스 안에 ResponseEntity를 반환하는 방식으로 간단히만 구현했다. 
+&nbsp; &nbsp; 개인 실습 프로젝트에서는 GlobalExceptionHandler를 따로 만들어 해당 클래스 안에 ResponseEntity를 반환하는 방식으로 간단히만 구현했다.  
 &nbsp; &nbsp; 이번 토이 프로젝트에서 팀원이 Custom Exception 클래스 하나를 구현하고, 상태코드와 메시지 정보를 담은 enum인 ExceptionEnum을 활용하여 Exception Handler를 구현했는데 예외처리가 훨씬 편했다. 앞으로 이렇게 활용하면 편할 것 같다.
 
 ## 4. AOP가 뭐지?
 
-&nbsp; &nbsp; 인증, 인가 및 예외처리는 정확한 의미에서 AOP는 아닌 것 같은데 관점에 따라 MVC 웹과 따로 구현되어 작동하는 로직들이었다. 좁은 의미에서 Spring AOP는 Bean 호출 앞뒤에서 작동하는 로직들을 실행하는 것 같은데, 활용 이유와, 유지보수 측면의 장점을 체감할 수 있었다.
+&nbsp; &nbsp; 인증, 인가 및 예외처리는 정확한 의미에서 AOP는 아닌 것 같은데 관점에 따라 MVC 웹과 따로 구현되어 작동하는 로직들이었다. 좁은 의미에서 Spring AOP는 Bean 호출 앞뒤에서 작동하는 로직들을 실행하는 것 같은데, 활용 이유와, 유지보수 측면의 장점을 체감할 수 있었다. 아직 내부 작동을 디버그해본적이 없어서 아키텍처는 모르겠지만, 이후 로깅 및 성능측정 등 직접 AOP를 작성해서 구현할 때 아키텍처도 같이 뜯어봐야겠다. 
