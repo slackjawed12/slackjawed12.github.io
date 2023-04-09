@@ -1,9 +1,9 @@
 ---
 layout: single
 
-title: "[WIL] 클론 프로젝트 회고"
-categories: til99
-tag: [WIL]
+title: "Intellij에서 Gradle Build 무한로딩 현상"
+categories: spring
+tag: [Spring, gradle, M2]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가
 use_math: true # 수식 쓸 경우 추가
@@ -15,21 +15,16 @@ sidebar:
 [//]: # (# search : false # 검색 시 결과에 나타날지 여부 결정)
 ---
 
-## 1. 3/26~4/1 회고
+## 1. 환경 및 에러 상황
 
-&nbsp; &nbsp; 저번 주 클론 프로젝트에서 첫날 무중단 배포를 테스트 하고 나서, 서비스 구현을 위해 다른 기술들을 학습해야 했다. 먼저 호텔 이미지를 업로드하고 조회하는 기능을 구현했다. 이는 Spring Cloud AWS를 통해 S3 버킷에 원본 이미지 파일을 저장하고, 이미지에 대한 요청이 올 때는 S3 url로 응답하는 방식을 선택했다. 이는 Spring Framework와 AWS S3의 연동을 같은 프로젝트 내에서 자바 코드로 관리할 수 있다는 장점이 있었고, 덕분에 비즈니스 로직을 확장해도 편하게 리팩토링 할 수 있었다.  
-&nbsp; &nbsp; 다만 저번 주 프로젝트 과정에서 학습 측면의 아쉬운 점이 여럿 있었다. 
+- MacBook M2 Pro
+- Intellij IDEA
+- Build : Gradle
+- Framework : Spring boot 2.7.10
 
-## 2. 예약 기능의 구현
+&nbsp; &nbsp; Spring boot Application을 Run 하면 main 메서드가 계속 돌고, 서버는 뜨지 않는 현상이 발생했다. Windows 10을 사용할 때는 일어나지 않았던 에러인데, M2와 관련이 있는건가 싶다.
 
-&nbsp; &nbsp; 시간이 부족해서 예약 기능을 구현해보지 못하고 프로젝트를 마무리했다. 예약 기능은 동시성 처리, 예외 처리 등 서비스 구현에 생각할 것이 많았다. 하지만 그만큼 테스트도 꼼꼼하게 해야할 것 같다. 이번 실전 프로젝트에서도 회의실 예약 기능 구현을 맡았고, 문제없이 기능이 작동하도록 동시성 부분을 학습해야할 것 같다.
+## 2. 해결 방법
 
-## 3. 테스트 코드 작성
-
-&nbsp; &nbsp; 사실 테스트 코드 작성은 혼자만 하겠다고 되는 것은 아니다. 정말 테스트 코드 작성을 시작하고 테스트 주도적인 개발 프로세스로 일을 하려면 팀원 모두가 필요성을 공감해야 하고, 그것을 설득할만한 강력한 근거가 있어야 했다. 그런데 부트캠프에서의 팀 프로젝트 환경은 설득의 근거가 매우 약했던 것 같다. 나를 포함한 모든 팀원들이 짧은 시간 동안 새로운 기술들을 학습하고 구현하는 데 거의 모든 시간을 투자하는 상황이었고, 테스트 코드의 작성은 자연스럽게 우선순위가 밀리게 되었다. 결국 클론코딩 프로젝트에서는 Jacoco를 잠깐 도입해보고, 아주 간단한 단위테스트 몇 개만 진행해보는 것으로 테스트 코드 작성을 마무리했다.  
-&nbsp; &nbsp; 실전 프로젝트에서는 복잡도가 높은 서비스를 구현해야 하기 때문에, 테스트 코드를 필수적으로 작성해서 테스트를 진행해야 할 것 같다.
-
-## 4. DB 테이블 설계
-&nbsp; &nbsp; 백엔드 개발자의 가장 중요한 기본기인데도, 이것저것 인프라 관련 지식들을 얕게 공부하는 것에 순간적으로 관심이 쏠려 소홀해졌던 부분이다. 호텔 카테고리 서비스 로직을 구현하면서 기본적인 DB 테이블조차도 제대로 설계하지 못하고 있다는 것을 다시금 깨달았다. 스코프가 넓어지면서 매우 비효율적인 쿼리들을 양산한 이후 코드들을 수정하여 겨우 초심으로 되돌아 올 수 있었다.   
-&nbsp; &nbsp; 이후 N+1문제 등 여러 산재한 문제들을 해결하는 방법들을 공부해야 할 것 같다.
-
+&nbsp; &nbsp; Settings의 Build, Execution, Deployment 항목에 들어간다. Build Tools 항목을 선택하고 Build 도구인 Gradle을 선택한다.  
+&nbsp; &nbsp; 이후 Build and Run using, Run test using 두 항목을 Gradle이 아닌 Intellij IDEA로 변경한다. Lombok 등 어노테이션 라이브러리를 사용하는 경우 Annotation Processor 설정도 추가해줘야 한다. Settings의 Build, Execution, Deployment 항목에서 Compiler에 들어가서 Annotation Processor 항목을 선택한다. 그리고 Enable Annotation Processor 옵션을 활성화 하면 된다.
