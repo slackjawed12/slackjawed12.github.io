@@ -1,7 +1,7 @@
 ---
 layout: single
 
-title: "Intellij에서 Gradle Build 무한로딩 현상"
+title: "Intellij에서 Gradle Build 무한로딩 처럼 보이는 현상"
 categories: spring
 tag: [Spring, gradle, M2]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
@@ -22,7 +22,9 @@ sidebar:
 - Build : Gradle
 - Framework : Spring boot 2.7.10
 
-&nbsp; &nbsp; Spring boot Application을 Run 하면 main 메서드가 계속 돌고, 서버는 뜨지 않는 현상이 발생했다. Windows 10을 사용할 때는 일어나지 않았던 에러인데, M2와 관련이 있는건가 싶다.
+&nbsp; &nbsp; Spring boot Application을 Run 하면 main 메서드가 계속 돌고, 서버는 뜨지 않는 현상이 발생했다. Windows 10을 사용할 때는 일어나지 않았던 에러인데, M2와 관련이 있는건가 싶다.  
+&nbsp; &nbsp; 알고보니 main 메서드의 무한로딩이 아니라 그냥 빌드가 무사히 올라간 것이었다. 메인페이지 들어갔더니 whitelabel page가 잘 뜬다.. 어쨌든 아래 해결 방법은 무한로딩의 해결이 아니라 '무한로딩 처럼 보이는 것을 안보이게'하는 해결 방법이 되겠다.
+
 
 ## 2. 해결 방법
 
