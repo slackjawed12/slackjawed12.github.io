@@ -18,7 +18,9 @@ sidebar:
 ## 1. OUTER JOIN
 
 &nbsp; &nbsp; OUTER JOIN은 INNER JOIN과는 다르게 ON 절의 조건에 만족하지 않아도 레코드들을 불러온다. 다음 상황을 생각해보자.  
+
 Person Table
+
 |personId|성|이름|
 |:---:|:---:|:---:|
 |1|강|백호|
@@ -26,14 +28,16 @@ Person Table
 
 
 Address table
+
 |addressId|personId|state|city|
 |:---:|:---:|:---:|:---:|
 |1|2|서울시|강남구|
 |2|3|강원도|강릉시|
 
-&nbsp; &nbsp; 이제 조건과 상관없이 다음과 같은 결과를 얻고싶다면, OUTER JOIN 중의 하나인 LEFT OUTER JOIN을 사용하면 된다. 즉, 주소가 없는 강백호도 불러올 수 있다는 것이다. 이 때 조건과 상관없이 불러오고 싶은 테이블이 무엇인지에 따라 LEFT, RIGHT, FULL OUTER JOIN으로 나뉜다. 
+&nbsp; &nbsp; 이제 조건과 상관없이 다음과 같은 결과를 얻고싶다면, OUTER JOIN 중의 하나인 LEFT OUTER JOIN을 사용하면 된다. 즉, 주소가 없는 강백호도 불러올 수 있다는 것이다. 이 때 조건과 상관없이 불러오고 싶은 테이블이 무엇인지에 따라 LEFT, RIGHT, FULL OUTER JOIN으로 나뉜다. LEFT OUTER JOIN은 JOIN 문 기준 왼쪽 테이블의 것을 모두 가져온다.
 
 Output
+
 |firstName|lastName|state|city|
 |:---:|:---:|:---:|:---:|
 |강|백호|Null|Null|

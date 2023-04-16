@@ -32,7 +32,3 @@ FH.FLAVOR
 WHERE TOTAL_ORDER > 3000 AND INGREDIENT_TYPE = 'fruit_based' 
 ORDER BY TOTAL_ORDER DESC
 ```
-
-## 2. OUTER JOIN
-
-&nbsp; &nbsp; OUTER JOIN은 조건에 부합하지 않아도 
