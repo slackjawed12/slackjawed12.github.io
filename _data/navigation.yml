@@ -14,15 +14,15 @@ docs:
 
   - title: "Java"
     url: /categories/java/
-    children:
-      - title: "Stream"
-        url: /categories/java/stream/
-        
+  
+  - title: "Linux"
+    url: /categories/linux/
+    
   - title: "Algorithm"
     children:
       - title: "Algorithm"
         url: /categories/algorithm/
-      - title: "Coding Test"
+      - title: "Problems"
         url: /categories/codingtest/
   
   - title: "SQL"

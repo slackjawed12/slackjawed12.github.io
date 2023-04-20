@@ -2,7 +2,7 @@
 layout: single
 
 title: "[Java] char 배열을 stream으로 바꾸기"
-categories: [java, stream]
+categories: [java]
 tag: [Java, string, chars]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가
