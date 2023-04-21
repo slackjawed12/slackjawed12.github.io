@@ -31,6 +31,7 @@ Input
 |3|a@b.xx|
 
 Output
+
 |email|
 |:---:|
 |a@b.xx|
