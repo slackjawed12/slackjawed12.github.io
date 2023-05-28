@@ -36,16 +36,17 @@ private void permutations(int n, int r, List<Integer> path, List<List<Integer>> 
         result.add(new ArrayList<>(path));
     }
         
-    for (int i = 0; i < nums.length; i++) {
-        if (!path.contains(nums[i])) {
-            path.add(nums[i]);
-            backtrack(nums, path, result);
+    for (int i = 1; i <= n; i++) {
+        if (!path.contains(i)) {
+            path.add(i);
+            permutations(n, r, path, result);
             path.remove(path.size() - 1);
         }
     }
 }
 ```
-&nbsp; &nbsp; 처음 작성한 버전은 헬퍼함수도 이중리스트를 반환하는 식으로 작성했는데, 이렇게 하면 중간정답인 result에 해당하는 객체가 파라미터와 반환값 두 군데에 있어야한다. 파라미터에 없으면 호출마다 result 객체를 생성해야한다. 두 방식 모두 성능 측면에서나 코드 가독성 측면에서나 좋지 않다.
+&nbsp; &nbsp; 처음 작성한 버전은 헬퍼함수도 이중리스트를 반환하는 식으로 작성했는데, 이렇게 하면 중간정답인 result에 해당하는 객체가 파라미터와 반환값 두 군데에 있어야한다. 파라미터에 없으면 호출마다 result 객체를 생성해야한다. 두 방식 모두 성능 측면에서나 코드 가독성 측면에서나 좋지 않다.  
+&nbsp; &nbsp; 또한 파라미터를 줄이기 위해서 + 순열 자체에는 요소의 수가 그다지 많지 않을 것이므로 성능 저하가 크지 않을 것으로 판단하여 path.contains(i)로 i를 방문했는지 여부를 체크했다. 리스트 컬렉션에서 contains를 호출하기 때문에 그다지 좋은 방식은 아닌데, 이를 보완하려면 visit[] 배열을 파라미터로 전달해서 체크해주면 된다.
 
 ## 2. 호출횟수의 개선 - Swap 방식
 &nbsp; &nbsp; 위에서 DFS로 구현한 함수는 호출횟수가 필요 이상으로 많다. 예를 들어, 4개 중에 4개를 뽑아 permutations을 만드는 경우의 수는 총 24가지인데, 실제 count를 출력해보면 호출횟수는 65가 나온다. 즉, 호출 횟수의 측면에서 보면 비효율적이라는 것이다. 이를 보완하기 위해 Swap 방식의 순열 구하기 알고리즘이 있다. 물론 단점도 있다.
