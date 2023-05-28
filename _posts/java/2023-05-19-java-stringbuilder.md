@@ -17,7 +17,7 @@ sidebar:
 
 ## 1. StringBuilder
 
-&nbsp; &nbsp; 문자열을 다룰 때 쓰는 String 클래스는 immutable이기 때문에 문자열 수정 등의 작업을 하려면 코드 자체도 불편하고, 억지로 한다고 해도 성능도 좋지 않다. 이럴 때 StringBuilder 클래스를 사용하면, 편하고 빠르게 문자열 연산을 처리할 수 있다. 알고리즘 문제를 풀 때나, Spring에서 문자열을 처리해서 작업을 해야할 때 요긴하게 쓸 수 있다.  
+&nbsp; &nbsp; 문자열을 다룰 때 쓰는 String 클래스는 immutable이기 때문에 문자열 수정 등의 작업을 하려면 코드 자체도 불편하고, 억지로 한다고 해도 성능도 좋지 않다. 이럴 때 StringBuilder 클래스를 사용하면, 편하고 빠르게 문자열 연산을 처리할 수 있다. 알고리즘 문제를 풀 때나, 문자열을 처리해서 작업을 해야할 때 요긴하게 쓸 수 있다.  
 &nbsp; &nbsp; 참고로, multi thread 환경에서는 StringBuffer를 써야한다.
 
 ## 2. StringBuilder 사용 방법
