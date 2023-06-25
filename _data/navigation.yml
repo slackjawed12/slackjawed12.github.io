@@ -38,6 +38,8 @@ docs:
         url: /categories/algorithm/queue
       - title: "graph"
         url: /categories/algorithm/graph
+      - title: "dp"
+        url: /categories/algorithm/dp
       - title: "backtracking"
         url: /categories/algorithm/backtracking
       - title: "greedy"
