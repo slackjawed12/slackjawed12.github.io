@@ -9,32 +9,60 @@ main:
 
 # 사이드바에 나타날 문서 구분 설정
 docs:
-  - title: "Spring"
-    url: /categories/spring/
-
-  - title: "Java"
-    url: /categories/java/
-  
-  - title: "Linux"
-    url: /categories/linux/
-    
-  - title: "Algorithm"
+  - title: "Language"
     children:
-      - title: "Algorithm"
-        url: /categories/algorithm/
+      - title: "JavaScript"
+        url: /categories/language/javascript
+      - title: "TypeScript"
+        url: /categories/language/typescript
+      - title: "Java"
+        url: /categories/language/java
+      - title: "Python"
+        url: /categories/language/python
+
+  - title: "Spring"
+    url: /categories/spring
+  
+  - title: "Node.js"
+    url: /categories/nodejs
+
+  - title: "Linux"
+    url: /categories/linux
+
+  - title: "Algorithm"
+    url: /categories/algorithm
+    children:
+      - title: "queue"
+        url: /categories/algorithm/stack
+      - title: "queue"
+        url: /categories/algorithm/queue
+      - title: "graph"
+        url: /categories/algorithm/graph
+      - title: "backtracking"
+        url: /categories/algorithm/backtracking
+      - title: "greedy"
+        url: /categories/algorithm/greedy
+      - title: "string"
+        url: /categories/algorithm/string
+      - title: "math"
+        url: /categories/algorithm/math
+      - title: "implementation"
+        url: /categories/algorithm/implementation
       - title: "Problems"
         url: /categories/codingtest/
-  
-  - title: "SQL"
-    url: /categories/sql/
+
+  - title: "Database"
+    url: /categories/database
     children:
+      - title: "SQL"
+        url: /categories/database/sql
       - title: "MySQL"
-        url: /categories/sql/mysql/
+        url: /categories/database/mysql
 
   - title: "Computer Architecture"
     children:
       - title: "SPIM"
-        url: /categories/spim/
+        url: /categories/ca/spim/
 
   - title: "Blog"
     url: /categories/blog/

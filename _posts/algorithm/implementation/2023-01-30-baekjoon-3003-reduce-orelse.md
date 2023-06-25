@@ -2,7 +2,7 @@
 layout: single
 
 title: "[백준][Java] 3003 - 킹,퀸,룩,비숍,나이트,폰"
-categories: codingtest
+categories: [algorithm, implementation]
 tag: [Java, stream, reduce, Optional, orElse]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가

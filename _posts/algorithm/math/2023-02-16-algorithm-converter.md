@@ -2,7 +2,7 @@
 layout: single
 
 title: "[Java] 서로 다른 진법을 환산해서 더하기"
-categories: algorithm
+categories: [algorithm, math]
 tag: [Java, algorithm]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가

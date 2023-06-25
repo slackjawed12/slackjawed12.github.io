@@ -2,7 +2,7 @@
 layout: single
 
 title: "에라토스테네스 체 구현 및 시간복잡도 분석"
-categories: algorithm
+categories: [algorithm, math]
 tag: [C++, algorithm, 소수]
 # 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성
 toc : true # table of contents 추가

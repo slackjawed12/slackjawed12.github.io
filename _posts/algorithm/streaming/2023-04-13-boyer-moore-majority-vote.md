@@ -2,7 +2,7 @@
 layout: single
 
 title: "Boyer-Moore 과반수 투표 알고리즘"
-categories: algorithm
+categories: [algorithm, streaming]
 tag: [Java, Streaming Algorithm]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가

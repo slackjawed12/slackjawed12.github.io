@@ -2,7 +2,7 @@
 layout: single
 
 title: "[백준][Java] 2480 - 주사위 세개"
-categories: codingtest
+categories: [algorithm, implementation]
 tag: [Java, stream, sorted]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가

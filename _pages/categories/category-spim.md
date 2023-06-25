@@ -1,7 +1,7 @@
 ---
 title: "SPIM"
 layout: archive
-permalink: /categories/spim/
+permalink: /categories/ca/spim/
 author_profile: true
 sidebar_main: true
 sidebar:

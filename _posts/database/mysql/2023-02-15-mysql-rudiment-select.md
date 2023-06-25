@@ -2,7 +2,7 @@
 layout: single
 
 title: "[MySQL] SELECT"
-categories: sql
+categories: [sql, mysql]
 tag: [SQL, MySQL, SELECT, ORDER BY, COUNT, AS, SELECT IF]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가

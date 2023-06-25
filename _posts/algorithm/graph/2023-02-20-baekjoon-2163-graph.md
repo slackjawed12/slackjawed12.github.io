@@ -2,7 +2,7 @@
 layout: single
 
 title: "[백준][Java] 1058 - 친구"
-categories: codingtest
+categories: [algorithm, graph]
 tag: [Java, graph]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가
