@@ -1,7 +1,7 @@
 ---
 title: "Java"
 layout: archive
-permalink: /categories/language/java/
+permalink: /categories/language/java
 author_profile: true
 sidebar_main: true
 sidebar:

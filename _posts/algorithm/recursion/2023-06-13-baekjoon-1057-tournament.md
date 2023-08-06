@@ -2,7 +2,7 @@
 layout: single
 
 title: "[백준][Python] 1057 - 토너먼트"
-categories: codingtest
+categories: [algorithm, recursion]
 tag: [Python, recursion]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가

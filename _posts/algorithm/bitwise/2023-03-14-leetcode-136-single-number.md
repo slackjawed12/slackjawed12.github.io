@@ -2,7 +2,7 @@
 layout: single
 
 title: "[LeetCode][Java] 136. Single Number"
-categories: codingtest
+categories: [algorithm, bitwise]
 tag: [Java, XOR]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가

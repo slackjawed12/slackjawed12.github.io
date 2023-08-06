@@ -1,7 +1,7 @@
 ---
 title: "MySQL"
 layout: archive
-permalink: /categories/databse/mysql/
+permalink: /categories/databse/mysql
 author_profile: true
 sidebar_main: true
 sidebar:

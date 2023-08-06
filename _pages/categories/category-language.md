@@ -1,7 +1,7 @@
 ---
 title: "Language"
 layout: archive
-permalink: /categories/language/
+permalink: /categories/language
 author_profile: true
 sidebar_main: true
 sidebar:

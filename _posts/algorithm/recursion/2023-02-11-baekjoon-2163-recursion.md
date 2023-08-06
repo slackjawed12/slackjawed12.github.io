@@ -2,7 +2,7 @@
 layout: single
 
 title: "[백준][Java] 2163 - 초콜릿 자르기"
-categories: codingtest
+categories: [algorithm, recursion]
 tag: [Java, recursion, dp]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가

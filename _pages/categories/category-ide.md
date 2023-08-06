@@ -1,7 +1,7 @@
 ---
 title: "IDE"
 layout: archive
-permalink: /categories/ide/
+permalink: /categories/ide
 author_profile: true
 sidebar_main: true
 sidebar:

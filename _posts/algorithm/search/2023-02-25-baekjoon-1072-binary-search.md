@@ -2,8 +2,8 @@
 layout: single
 
 title: "[백준][Java] 1072 - 게임"
-categories: codingtest
-tag: [Java, 조합론, 재귀]
+categories: [algorithm, search]
+tag: [Java, 이진탐색]
 # 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성
 toc : true # table of contents 추가
 use_math: true # 수식 쓸 경우 추가

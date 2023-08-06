@@ -1,7 +1,7 @@
 ---
 title: "PyCharm"
 layout: archive
-permalink: /categories/ide/pycharm/
+permalink: /categories/ide/pycharm
 author_profile: true
 sidebar_main: true
 sidebar:

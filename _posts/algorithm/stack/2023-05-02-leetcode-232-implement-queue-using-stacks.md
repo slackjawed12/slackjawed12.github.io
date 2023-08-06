@@ -2,7 +2,7 @@
 layout: single
 
 title: "[LeetCode][Java] 232. Implement Queue using Stacks"
-categories: codingtest
+categories: [algorithm, stack]
 tag: [Java, Stack, Queue]
 [//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
 toc : true # table of contents 추가
