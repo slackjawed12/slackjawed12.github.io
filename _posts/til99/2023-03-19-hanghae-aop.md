@@ -1,18 +1,18 @@
 ---
 layout: single
 
-title: "[WIL] 6주차 Spring Framework의 AOP"
+title: "[WIL] Spring Framework의 AOP"
 categories: til99
 tag: [Java, spring]
-[//]: # ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
-toc : true # table of contents 추가
+[//]:# ( 태그 여러개 달고 싶으면 [태그1, 태그2, 태그3 ... ] 으로 작성)
+toc: true # table of contents 추가
 use_math: true # 수식 쓸 경우 추가
 author_profile: true # 포스트 화면에서 작성자 프로필이 나타날지 여부 결정
 
 sidebar:
- nav : "docs"
+  nav: "docs"
 
-[//]: # (# search : false # 검색 시 결과에 나타날지 여부 결정)
+[//]:# (# search : false # 검색 시 결과에 나타날지 여부 결정)
 ---
 
 ## 1. 회고 개요
@@ -22,7 +22,7 @@ sidebar:
 ## 2. Spring Security와 Authorization, Authentication
 
 &nbsp; &nbsp; Spring Security의 아키텍처 상 인증 및 인가의 로직은 웹 MVC에 앞서서 별개로 진행된다. 즉, 요청 메시지에 대한 정보가 Dispatcher Servlet을 통과하기 전에 여러 개의 Filter로 구성된 부분에서 요청 메시지를 검증한다.  
-&nbsp; &nbsp; 먼저 프로젝트에서 Jwt, Session 등 유저를 인증하는 방식을 결정하고,  결정된 방식에 따라 Custom Filter를 구현한다. 이후 SecurityConfig 클래스에 해당 Filter를 등록해서 사용할 수 있다.
+&nbsp; &nbsp; 먼저 프로젝트에서 Jwt, Session 등 유저를 인증하는 방식을 결정하고, 결정된 방식에 따라 Custom Filter를 구현한다. 이후 SecurityConfig 클래스에 해당 Filter를 등록해서 사용할 수 있다.
 &nbsp; &nbsp; SecurityConfig 클래스에서는 서버의 인증 로직에 대한 몇몇 기본 설정에 대한 것들을 Bean으로 등록하여 사용한다. 이를테면 Password 암호화 방식, Filter Chain의 구성 방식, 인증 없이 허용할 url 등을 초기화한다.
 
 ## 3. Exception
@@ -32,4 +32,4 @@ sidebar:
 
 ## 4. AOP가 뭐지?
 
-&nbsp; &nbsp; 인증, 인가 및 예외처리는 정확한 의미에서 AOP는 아닌 것 같은데 관점에 따라 MVC 웹과 따로 구현되어 작동하는 로직들이었다. 좁은 의미에서 Spring AOP는 Bean 호출 앞뒤에서 작동하는 로직들을 실행하는 것 같은데, 활용 이유와, 유지보수 측면의 장점을 체감할 수 있었다. 아직 내부 작동을 디버그해본적이 없어서 아키텍처는 모르겠지만, 이후 로깅 및 성능측정 등 직접 AOP를 작성해서 구현할 때 아키텍처도 같이 뜯어봐야겠다. 
+&nbsp; &nbsp; 인증, 인가 및 예외처리는 정확한 의미에서 AOP는 아닌 것 같은데 관점에 따라 MVC 웹과 따로 구현되어 작동하는 로직들이었다. 좁은 의미에서 Spring AOP는 Bean 호출 앞뒤에서 작동하는 로직들을 실행하는 것 같은데, 활용 이유와, 유지보수 측면의 장점을 체감할 수 있었다. 아직 내부 작동을 디버그해본적이 없어서 아키텍처는 모르겠지만, 이후 로깅 및 성능측정 등 직접 AOP를 작성해서 구현할 때 아키텍처도 같이 뜯어봐야겠다.
