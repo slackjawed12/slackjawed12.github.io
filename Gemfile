@@ -1,6 +1,11 @@
 source "https://rubygems.org"
 gemspecs
-gem "minimal-mistakes-jekyll"
-gem "webrick", "~> 1.8"
-gem 'tzinfo'
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "jekyll"
+gem "jekyll-paginate"
+gem "jekyll-sitemap"
+gem "jekyll-gist"
+gem "jekyll-feed"
+gem "jemoji"
+gem "jekyll-include-cache"
+gem "jekyll-algolia"
