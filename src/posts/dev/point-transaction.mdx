@@ -1,0 +1,89 @@
+---
+title: "외부 서비스 포인트 연동 시 트랜잭션"
+description: 외부 협력사와 포인트 연동 서비스를 구현할 때 고려해야 하는 사항을 정리했습니다.
+category: Backend
+tag: [SystemDesign, Backend]
+createdAt: 2024-04-10
+---
+
+### Overview
+
+&nbsp; &nbsp; 회사에서 기존 외부 협력사와 포인트를 연동해서 거래하는 서비스가 구축되어 있었습니다.
+그런데 DB에 순간적으로 부하가 걸려 커넥션이 부족해지면 트랜잭션 요건을 만족하지 않는 장애가 발생했습니다.
+외부 협력사의 포인트는 사용처리가 됐는데, 회사 DB에 기록되지 않는 것이었습니다.
+반대로 협력사 네트워크의 오류가 발생한 경우에는 어떤 데이터도 기록되지 않아 트랜잭션의 불일치 문제는 없었습니다.
+
+### 문제점
+
+&nbsp; &nbsp; 결론부터 말하면, DB 장애 발생 시 예외처리 부분에서 포인트 사용 취소 처리와 관련된 사항이 구현되어있지 않았습니다.
+간단한 예시 코드는 아래와 같습니다.
+
+```javascript
+// ----- before -----
+class PointTransactionService {
+  // ...
+
+  // 외부 협력사 포인트로 구매
+  buyWithPoint(order) {
+    const tx = db.transaction();
+    try {
+      validateOrder(order, tx);
+
+      const restResult = requestPointUse(this.useUrl, order.pointAmount);
+
+      buy(order, tx);
+    } catch (error) {
+      // 장애 처리 - 트랜잭션 롤백, 모니터링 시스템에 전달하거나 알림 발생
+      tx.rollback();
+      alertError(error);
+    }
+  }
+}
+```
+
+&nbsp; &nbsp; 이 경우에 buy Transaction에서 DB 오류로 예외가 발생하면 requestPointUse가 이미 처리되었으므로 데이터 불일치가 발생합니다.
+제가 해결했던 방법은 다음과 같습니다.
+
+1. DB 트랜잭션 범위에서 API 호출을 분리해서, 트랜잭션 이전에 API 호출이 발생하도록 합니다.
+2. DB에서 예외 발생 시 외부 협력사에서 제공받은 **취소 API를 호출**합니다.
+
+```javascript
+// ----- after -----
+class PointTransactionService {
+  // ...
+
+  // 외부 협력사 포인트로 구매
+  async buyWithPoint(order, user) {
+    const restResult = requestPointUse(this.useUrl, order.pointAmount);
+    try {
+      buyTransaction(order);
+    } catch (error) {
+      requestCancelPointUse(this.cancelUrl, restResult.uniqueId);
+      alertError(error);
+    }
+  }
+
+  buyTransaction(order: Order) {
+    const tx = db.transaction();
+    try {
+      validateOrder(order, tx);
+
+      buy(order, tx);
+    } catch (error) {
+      tx.rollback();
+      throw new DatabaseError("transaction error");
+    }
+  }
+}
+```
+
+### 생각할 점
+
+&nbsp; &nbsp; before 코드에는 또 다른 문제가 있습니다.
+API 호출이 트랜잭션 범위에 있으므로, API에서 장애가 발생해서 응답시간이 느려지면 커넥션이 고갈될 수 있다는 것이었습니다.
+after 코드도 여전히 API의 응답 속도 문제를 완전히 해결한 것은 아닙니다.
+아래 최범균님 영상을 통해서 이런 경우 API의 응답 속도 개선하는 여러 방안을 알 수 있었습니다.
+
+### References
+
+[최범균님 유튜브 영상](https://www.youtube.com/watch?v=xc0tnJVGQEw)
